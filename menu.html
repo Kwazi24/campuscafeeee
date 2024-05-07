@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0c0b0b;
+            background-image: url("");  /* Replace 'background.jpg' with your background image path */
+            background-size: cover;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap to the next line */
+            justify-content: space-between; /* Add space between items */
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #fff;
+            width: 100%; /* Full width */
+        }
+
+        /* Food item styles */
+        .food-item {
+            width: calc(50% - 20px); /* Adjusted width to fit at least two items per line */
+            margin-bottom: 20px;
+            margin-right: 20px; /* Add right margin for spacing */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #f5f1f1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .food-item:nth-child(odd) {
+            margin-right: 0; /* Remove right margin for odd items */
+        }
+
+        .food-item img {
+            max-width: 100%; /* Ensure images fill the container */
+            height: auto;
+            display: block; /* Remove extra space below images */
+            margin: 0 auto; /* Center images horizontally */
+            max-height: 200px; /* Limit the height of the images */
+        }
+
+        .food-item-info {
+            padding: 20px;
+        }
+
+        .food-item-info h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .food-item-info .price {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="food-items">
+        <h2>Available Food Items</h2>
+        <!-- Food items will be dynamically added here -->
+    </div>
+
+    <script>
+        // Define food items
+        const foodItems = [
+            { name: "Double Chocolate", price: 12.00, image: "download.jpeg" },
+            { name: "Jungle Oats Bar", price: 6.50, image: "1673879014.0135.jpeg" },
+            { name: "Lays Barbecue", price: 18.00, image: "download (2).jpeg" },
+            { name: "Marchiano", price: 15.00, image: "download (3).jpeg" },
+            { name: "Peppe Steak", price: 22.00, image: "steak-large.jpg" },
+            { name: "Sprite 440ml", price: 12.00, image: "OIP (2).jpeg" },
+            { name: "Steak and Kidney", price: 22.00, image: "steakandkidneypudding-5c13fc2d4cedfd00014ece7c.jpg" },
+            { name: "Chocolate Chip", price: 6.00, image: "th (1).jpeg" },
+            { name: "Coke 440ml", price: 12.00, image: "OIP (3).jpeg" },
+            { name: "Doritos Chilli Pepper", price: 20.00, image: "OIP (5).jpeg" },
+            { name: "Doritos Sweet Chilli", price: 20.00, image: "s.jpeg" }
+            // Add more items here
+        ];
+
+        // Display food items
+        const foodItemsContainer = document.getElementById("food-items");
+        foodItems.forEach(item => {
+            const div = document.createElement("div");
+            div.classList.add("food-item");
+            div.innerHTML = `
+                <img src="${item.image}" alt="${item.name}">
+                <div class="food-item-info">
+                    <h3>${item.name}</h3>
+                    <div class="price">R${item.price.toFixed(2)}</div>
+                </div>
+            `;
+            foodItemsContainer.appendChild(div);
+        });
+    </script>
+</body>
+</html>
